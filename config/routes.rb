@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  #LetterOpener -> Delete when shipping to production
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
