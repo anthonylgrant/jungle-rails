@@ -9,7 +9,7 @@
       </button>
       <a class="navbar-brand" href="/">Jungle</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
+    <div id="navb```ar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
           <%= link_to 'Home', :root %>
@@ -43,7 +43,19 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
+           <% if current_user %>
+  <li>
+  <span>Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %></span>
+  </li>
+  <% else %>
+
+  <li>
+    <span><%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %></span>
+  </li>
+<% end %>
       </ul>
+
+
     </div>
   </div>
 </nav>
