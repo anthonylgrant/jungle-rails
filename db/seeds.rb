@@ -132,16 +132,65 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+user1 = User.create!(
+  {
+  first_name: "1FIRSTNAME TEST",
+  last_name: "1LASTNAME TEST",
+  email: "TEST1@TEST.COM",
+  password_digest: "123412341234",
+  }
+)
+
+User.create!([
+  # {
+  # first_name: "1FIRSTNAME TEST",
+  # last_name: "1LASTNAME TEST",
+  # email: "TEST1@TEST.COM",
+  # password_digest: "123412341234",
+  # },
+  {
+  first_name: "2FIRSTNAME TEST",
+  last_name: "2LASTNAME TEST",
+  email: "TEST2@TEST.COM",
+  password_digest: "123412341234",
+  },
+  {
+  first_name: "3FIRSTNAME TEST",
+  last_name: "3LASTNAME TEST",
+  email: "TEST3@TEST.COM",
+  password_digest: "123412341234",
+  }
+])
+
+user4 = User.create!(
+  {
+  first_name: "4FIRSTNAME TEST",
+  last_name: "4LASTNAME TEST",
+  email: "TEST4@TEST.COM",
+  password_digest: "123412341234",
+  }
+)
+
+user5 = User.create!(
+  {
+  first_name: "5FIRSTNAME TEST",
+  last_name: "5LASTNAME TEST",
+  email: "TEST5@TEST.COM",
+  password_digest: "123412341234",
+  }
+)
+
+
 prod1.reviews.create!([
   {
   rating: 2,
   description: "This sucks",
-  user: User.first.id
+  user: user1
   },
   {
   rating: 5,
   description: "This cool",
-  user: User.first.id
+  user: user1
 }
 ])
 
@@ -149,12 +198,12 @@ prod2.reviews.create!([
   {
   rating: 5,
   description: "This sucks",
-  user: User.first.id
+  user: User.find(2)
   },
   {
   rating: 3,
   description: "This cool",
-  user: User.first.id
+  user: User.find(2)
 }
 ])
 
@@ -162,13 +211,15 @@ prod3.reviews.create!([
   {
   rating: 5,
   description: "This sucks",
-  user: User.first.id
+  user: User.find(3)
   },
   {
   rating: 3,
   description: "This cool",
-  user: User.first.id
+  user: User.find(3)
 }
 ])
+
+
 
 puts "DONE!"
