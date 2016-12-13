@@ -1,6 +1,4 @@
-class Admin::ProductsController < ApplicationController
-
-  admin_authentication
+class Admin::ProductsController < Admin::AdminController
 
   def index
     @products = Product.order(id: :desc).all

@@ -35,6 +35,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
+gem "animate-rails"
 
 # Letter Opener
 gem 'letter_opener_web', '~> 1.2.0', :group => :development
