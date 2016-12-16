@@ -7,12 +7,12 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-    @user = User.find(1)
+    @user = User.find(1) # major: Get the user who created the order
     puts "This is a user at index #{@user}"
 
     if order.valid?
       empty_cart!
-      UserMailer.order_email(@user, @order).deliver_now
+      UserMailer.order_email(order).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first

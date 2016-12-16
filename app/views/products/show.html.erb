@@ -27,7 +27,7 @@
     </div>
 
     <% if current_user %>
-   <div>
+    <div>
      <h3>Subit a review!</h3>
      <%= form_for ([@product, @review]) do |f| %>
        <p><%= f.text_area :description %></p>
@@ -39,7 +39,8 @@
    <div class="row">
      <h2 class="ld-horizontal">
        <dt>Reviews</dt>
-       <%= render partial:'review', collection: @product.reviews.sort_by(&:created_at).reverse %>
+     </h2>
+       <%= render partial:'review', collection: @reviews %>
 
    </div>
 

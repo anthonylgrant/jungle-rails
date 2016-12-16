@@ -4,7 +4,7 @@ RSpec.describe Product, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
   describe 'Validations' do
     before :each do
-      @category = Category.create!(name: 'well fuck u then')
+      @category = Category.create!(name: 'Test-Category')
     end
     # validation tests/examples here
     # need 5 cases (1 per validation)
